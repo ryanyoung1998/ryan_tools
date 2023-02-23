@@ -72,12 +72,10 @@ class ChatWindow(QWidget):
                 border: 1px solid #aaa;
             }
         """)
-
-        self.enterShortcut = QShortcut(QKeySequence("Enter"), self)
-        self.enterShortcut.activated.connect(self.sendMsg)
         
         # 绑定发送按钮的点击事件
         self.sendBtn.clicked.connect(self.sendMsg)
+        
 
     # 发送消息
     def sendMsg(self):
