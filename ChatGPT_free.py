@@ -14,6 +14,7 @@ class ChatWindow(QWidget):
         self.setGeometry(300, 300, 500, 500)
         self.initUI()
  
+
     # 创建UI
     def initUI(self):
         # 创建一个QTextEdit，用于显示聊天记录
@@ -54,7 +55,6 @@ class ChatWindow(QWidget):
             }
         """)
 
- 
         # 创建一个发送按钮
         self.sendBtn = QPushButton(self)
         self.sendBtn.setText("发送")
