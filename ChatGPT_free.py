@@ -90,21 +90,25 @@ class ChatWindow(QWidget):
             self.inputLineEdit.clear()
 
             # 调用OpanAI
-            openai.api_key = "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"
+            openai.api_key = "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"
             model_engine = "text-davinci-003"
             # 限制1024字节   512汉字
-            prompt = msg
-            res = openai.Completion.create(
-                engine=model_engine,
-                prompt=prompt,
-                max_tokens=1024,
-                n=1,
-                stop=None,
-                temperature=0.5,
-            )
-            # 将内容添加到文本框中
-            msg = res.choices[0].text
-            self.chatTextEdit.append('\nChatGPT：' + msg)
+            try:
+                res = openai.Completion.create(
+                    engine=model_engine,
+                    prompt=msg,
+                    max_tokens=1024,
+                    n=1,
+                    stop=None,
+                    temperature=0.5,
+                )
+                # 将内容添加到文本框中
+                msg = res.choices[0].text
+                self.chatTextEdit.append('\nChatGPT：' + msg)
+            except openai.error.AuthenticationError:
+                self.chatTextEdit.append('\nChatGPT：API Key已过期！' )
+            except:
+                self.chatTextEdit.append('\n被玩坏了！')
         else:
             self.chatTextEdit.append('\nChatGPT：输入框不能为空哦~' )
 
