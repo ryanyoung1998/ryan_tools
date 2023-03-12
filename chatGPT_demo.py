@@ -90,7 +90,7 @@ class ChatWindow(QWidget):
             self.inputLineEdit.clear()
 
             # 调用OpanAI
-            openai.api_key = "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"
+            openai.api_key = "OpenAI_api_key"
             model_engine = "text-davinci-003"
             # 限制1024字节   512汉字
             prompt = msg
