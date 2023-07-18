@@ -1,5 +1,5 @@
 import openai
-openai.api_key = "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"
+openai.api_key = "openai_api_key"
 model_engine = "text-davinci-003"
 # 限制1024字节   512汉字
 prompt = "用java写二叉树"
